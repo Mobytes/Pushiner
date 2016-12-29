@@ -38,6 +38,9 @@ curl_exec($ch);
 curl_close($ch);
 ```
 
+### Laravel
+Sendpush has its library for laravel 5. * [SendPush][1]
+
 ### Python
 ```py
 #!/usr/bin/python 
@@ -95,3 +98,5 @@ curl -s \
   "success": false
 }
 ```
+
+[1]: https://github.com/evervasquez/laravel-sendpush
