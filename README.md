@@ -72,5 +72,5 @@ curl -s \
   --form-string "token=abc123" \
   --form-string "user=user123" \
   --form-string "message=hello world" \
-  https://api.pushover.net/1/messages.json
+  http://notify.mobytesac.com/api/v1/send_menssage/
 ```
