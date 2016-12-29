@@ -76,7 +76,7 @@ curl -s \
   http://notify.mobytesac.com/api/v1/send_menssage/
 ```
 
-## Respuestas
+## Manejo de respuesta
 
 ### Envío éxitoso
 ```js
