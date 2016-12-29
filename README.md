@@ -75,3 +75,23 @@ curl -s \
   --form-string "message=mi contennido" \
   http://notify.mobytesac.com/api/v1/send_menssage/
 ```
+
+## Respuestas
+
+### Envío éxitoso
+```js
+{
+  "message": "la notificacion fue enviada con éxito",
+  "code": 200,
+  "success": true
+}
+```
+
+### Envío errado
+```js
+{
+  "message": "mensaje de error",
+  "code": 400,
+  "success": false
+}
+```
