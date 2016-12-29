@@ -3,7 +3,7 @@ La API REST le permite interactuar con SendPush para cualquier cosa que pueda en
 Por ejemplo:
 
 * Enviar notificaciones a todos los ususarios de una aplicación
-* Mucho más
+* Muy pronto muchas cosas más.
 
 ## Envió de notificaciones
 
@@ -46,4 +46,22 @@ connection = httplib.HTTPSConnection('http://notify.mobytesac.com', 443)
 connection.connect() 
 connection.request('POST', '/api/v1/send_menssage/', json.dumps({ "token_user": "my_token_user", "token_app": "my_token_app", "title": "my_title", "message": "Your notification content."}), { "Content-Type": "application/json" } ) result = json.loads(connection.getresponse().read())
 print result
+```
+
+### Ruby
+
+```ruby
+require "net/https"
+
+url = URI.parse("https://api.pushover.net/1/messages.json")
+req = Net::HTTP::Post.new(url.path)
+req.set_form_data({
+  :token => "abc123",
+  :user => "user123",
+  :message => "hello world",
+})
+res = Net::HTTP.new(url.host, url.port)
+res.use_ssl = true
+res.verify_mode = OpenSSL::SSL::VERIFY_PEER
+res.start {|http| http.request(req) }
 ```
