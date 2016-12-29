@@ -9,7 +9,7 @@ Por ejemplo:
 
 Endpoint | Método HTTP | Parametros
 ------------ | ------------- | ------------
-http://notify.mobytesac.com/api/v1/send_menssage/ | POST | token_user, token_app, title, message
+http://notify.mobytesac.com/api/v1/send_message/ | POST | token_user, token_app, title, message
 
 ## Parametros
 
@@ -25,7 +25,7 @@ message | String | Si | El contenido de la notificación. Es el detalle de la no
 ### PHP
 ```php
 curl_setopt_array($ch = curl_init(), array(
-  CURLOPT_URL => "http://notify.mobytesac.com/api/v1/send_menssage/",
+  CURLOPT_URL => "http://notify.mobytesac.com/api/v1/send_message/",
   CURLOPT_POSTFIELDS => array(
     "token_user" => "my_token_user",
     "token_app" => "my_token_app",
@@ -44,7 +44,7 @@ curl_close($ch);
 import json, httplib 
 connection = httplib.HTTPConnection('http://notify.mobytesac.com', 443) 
 connection.connect() 
-connection.request('POST', '/api/v1/send_menssage/', json.dumps({ "token_user": "my_token_user", "token_app": "my_token_app", "title": "mi título", "message": "mi contenido"}), { "Content-Type": "application/json" } ) result = json.loads(connection.getresponse().read())
+connection.request('POST', '/api/v1/send_message/', json.dumps({ "token_user": "my_token_user", "token_app": "my_token_app", "title": "mi título", "message": "mi contenido"}), { "Content-Type": "application/json" } ) result = json.loads(connection.getresponse().read())
 print result
 ```
 
@@ -53,7 +53,7 @@ print result
 ```ruby
 require "net/http"
 
-url = URI.parse("http://notify.mobytesac.com/api/v1/send_menssage/")
+url = URI.parse("http://notify.mobytesac.com/api/v1/send_message/")
 req = Net::HTTP::Post.new(url.path)
 req.set_form_data({
   :token_user => "my token_user",
@@ -73,7 +73,7 @@ curl -s \
   --form-string "token_app=user123" \
   --form-string "title=mi título" \
   --form-string "message=mi contennido" \
-  http://notify.mobytesac.com/api/v1/send_menssage/
+  http://notify.mobytesac.com/api/v1/send_message/
 ```
 
 ## Manejo de respuesta
