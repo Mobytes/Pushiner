@@ -15,7 +15,7 @@ http://notify.mobytesac.com/api/v1/send_menssage/ | POST | token_user, token_app
 
 Nombre de parámetro | Tipo | Obligatorio | Descripcion
 ------------ | ------------- | ------------ | ----------
-token_user | String | Si | Su clave de usuario. Puede encontrar su ``token_user`` en la sección de configuración de su aplicación                             dentro del portal de desarrolladores.
+token_user | String | Si | Su clave de usuario. Puede encontrar su foo <font color='red'>token_user</font> foo en la sección de configuración de su aplicación                             dentro del portal de desarrolladores.
 token_app | String | Si | Su clave de aplicación. Puede encontrar su ``token_user`` en la sección de configuración de su     aplicación dentro del portal de desarrolladores.
 title | String | Si | El título de la notificación.
 message | String | Si | El contenido de la notificación. Es el detalle de la notificación.
