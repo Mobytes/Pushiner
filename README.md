@@ -7,7 +7,11 @@ Por ejemplo:
 
 ## Envió de notificaciones
 
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
+Endpoint | Método HTTP | Parametros
+------------ | ------------- | ------------
+http://notify.mobytesac.com/api/v1/send_menssage/ | POST | token_user, token_app, title, message
+
+## Parametros
+
+### token_user
+
