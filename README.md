@@ -29,8 +29,8 @@ curl_setopt_array($ch = curl_init(), array(
   CURLOPT_POSTFIELDS => array(
     "token_user" => "my_token_user",
     "token_app" => "my_token_app",
-    "title" => "my_title",
-    "message" => "hello world",
+    "title" => "mi título",
+    "message" => "hola mundo",
   ),
   CURLOPT_SAFE_UPLOAD => true,
 ));
@@ -44,7 +44,7 @@ curl_close($ch);
 import json, httplib 
 connection = httplib.HTTPConnection('http://notify.mobytesac.com', 443) 
 connection.connect() 
-connection.request('POST', '/api/v1/send_menssage/', json.dumps({ "token_user": "my_token_user", "token_app": "my_token_app", "title": "my_title", "message": "Your notification content."}), { "Content-Type": "application/json" } ) result = json.loads(connection.getresponse().read())
+connection.request('POST', '/api/v1/send_menssage/', json.dumps({ "token_user": "my_token_user", "token_app": "my_token_app", "title": "mi título", "message": "mi contenido"}), { "Content-Type": "application/json" } ) result = json.loads(connection.getresponse().read())
 print result
 ```
 
@@ -58,19 +58,20 @@ req = Net::HTTP::Post.new(url.path)
 req.set_form_data({
   :token_user => "my token_user",
   :token_app => "my token_app",
-  :title => "my title",
-  :message => "my content",
+  :title => "mi título",
+  :message => "mi contenido",
 })
 res = Net::HTTP.new(url.host, url.port)
 res.use_ssl = true
 res.start {|http| http.request(req) }
 ```
 
-### Por terminal/consola
+### Consola
 ```sh
 curl -s \
-  --form-string "token=abc123" \
-  --form-string "user=user123" \
-  --form-string "message=hello world" \
+  --form-string "token_user=abc123" \
+  --form-string "token_app=user123" \
+  --form-string "title=mi título" \
+  --form-string "message=mi contennido" \
   http://notify.mobytesac.com/api/v1/send_menssage/
 ```
