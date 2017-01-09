@@ -1,5 +1,5 @@
-# SendPush REST API
-La API REST le permite interactuar con SendPush para cualquier cosa que pueda enviar una solicitud HTTP.
+# Pushiner REST API
+La API REST le permite interactuar con Pushiner para cualquier cosa que pueda enviar una solicitud HTTP.
 Por ejemplo:
 
 * Enviar notificaciones a todos los ususarios de una aplicación
@@ -9,7 +9,7 @@ Por ejemplo:
 
 Endpoint | Método HTTP | Parametros
 ------------ | ------------- | ------------
-http://notify.mobytesac.com/api/v1/send_message/ | POST | token_user, token_app, title, message
+https://pushiner/api/v1/send_message/ | POST | token_user, token_app, title, message
 
 ## Parametros
 
@@ -25,7 +25,7 @@ message | String | Si | El contenido de la notificación. Es el detalle de la no
 ### PHP
 ```php
 curl_setopt_array($ch = curl_init(), array(
-  CURLOPT_URL => "http://notify.mobytesac.com/api/v1/send_message/",
+  CURLOPT_URL => "https://pushiner/api/v1/send_message/",
   CURLOPT_POSTFIELDS => array(
     "token_user" => "my_token_user",
     "token_app" => "my_token_app",
@@ -45,7 +45,7 @@ Sendpush has its library for laravel 5. * [SendPush][1]
 ```py
 #!/usr/bin/python 
 import json, httplib 
-connection = httplib.HTTPConnection('http://notify.mobytesac.com', 443) 
+connection = httplib.HTTPSConnection('https://pushiner', 443) 
 connection.connect() 
 connection.request('POST', '/api/v1/send_message/', json.dumps({ "token_user": "my_token_user", "token_app": "my_token_app", "title": "mi título", "message": "mi contenido"}), { "Content-Type": "application/json" } ) result = json.loads(connection.getresponse().read())
 print result
@@ -54,9 +54,9 @@ print result
 ### Ruby
 
 ```ruby
-require "net/http"
+require "net/https"
 
-url = URI.parse("http://notify.mobytesac.com/api/v1/send_message/")
+url = URI.parse("https://pushiner.com/api/v1/send_message/")
 req = Net::HTTP::Post.new(url.path)
 req.set_form_data({
   :token_user => "my token_user",
@@ -66,6 +66,7 @@ req.set_form_data({
 })
 res = Net::HTTP.new(url.host, url.port)
 res.use_ssl = true
+res.verify_mode = OpenSSL::SSL::VERIFY_PEER
 res.start {|http| http.request(req) }
 ```
 
@@ -76,7 +77,7 @@ curl -s \
   --form-string "token_app=user123" \
   --form-string "title=mi título" \
   --form-string "message=mi contennido" \
-  http://notify.mobytesac.com/api/v1/send_message/
+  https://pushiner.com/api/v1/send_message/
 ```
 
 ## Manejo de respuesta
